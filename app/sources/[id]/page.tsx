@@ -1,45 +1,6 @@
-const sources: Record<string, { name: string; location: string; type: string; status: string; distance: string; details: string }> = {
-  "savita-borewell": {
-    name: "Savita Borewell",
-    location: "Near Savita Bakery, Borewell Road",
-    type: "Drinking and Cooking",
-    status: "clean",
-    distance: "400m",
-    details: "This borewell has been tested and confirmed safe for drinking and cooking. Water is available from 6 AM to 6 PM daily.",
-  },
-  "gowda-colony-well": {
-    name: "Gowda Colony Well",
-    location: "Inside Gowda Colony, near park",
-    type: "Household Use",
-    status: "clean",
-    distance: "600m",
-    details: "Fresh groundwater source, tested monthly. Best for household use like cleaning and bathing.",
-  },
-  "near-tax-bar": {
-    name: "HDMC Water Point",
-    location: "Opposite the tax building, main road",
-    type: "Household Use",
-    status: "clean",
-    distance: "800m",
-    details: "Municipal water supply point. Available 24 by 7. Suitable for all household purposes.",
-  },
-};
+import Nav from "../nav";
 
-export default async function SourceDetail({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const source = sources[id];
-
-  if (!source) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <h2 className="text-2xl font-bold text-gray-800">Source not found</h2>
-        <a href="/sources" className="mt-4 text-teal-600 font-semibold hover:underline">
-          Back to Sources
-        </a>
-      </div>
-    );
-  }
-
+export default function Report() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <header className="bg-teal-600 text-white p-4 shadow-md">
@@ -53,38 +14,78 @@ export default async function SourceDetail({ params }: { params: Promise<{ id: s
         </div>
       </header>
 
-      <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-6">
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-start justify-between mb-4">
-            <h2 className="text-2xl font-bold font-heading text-gray-800">
-              {source.name}
-            </h2>
-            <span className="inline-block px-3 py-1 text-sm font-medium text-white bg-emerald-500 rounded-full">
-              Clean
-            </span>
+      <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-6 pb-20">
+        <h2 className="text-2xl font-bold font-heading text-gray-800 mb-6">
+          Help Improve Oasis
+        </h2>
+
+        <div className="space-y-6">
+          <div className="bg-white rounded-xl shadow-sm p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-lg font-semibold font-heading text-gray-800">
+                Suggest a Water Source
+              </h3>
+            </div>
+            <p className="text-sm text-gray-500 mb-4">
+              Found a clean water source nearby? Let us know and we will verify it.
+            </p>
+            <form className="space-y-3">
+              <input
+                type="text"
+                placeholder="Source name (e.g. RK Colony Borewell)"
+                className="input input-bordered w-full"
+              />
+              <input
+                type="text"
+                placeholder="Location / address"
+                className="input input-bordered w-full"
+              />
+              <select className="select select-bordered w-full">
+                <option value="">Type of water</option>
+                <option value="drinking">Drinking and Cooking</option>
+                <option value="household">Household Use</option>
+                <option value="both">Both</option>
+              </select>
+              <textarea
+                placeholder="Any extra details (optional)"
+                className="textarea textarea-bordered w-full h-16"
+              />
+              <button type="button" className="btn btn-primary w-full">
+                Submit Suggestion
+              </button>
+            </form>
           </div>
 
-          <p className="text-gray-500 mb-2">{source.location}</p>
-          <p className="text-sm text-gray-400 mb-4">{source.distance} away</p>
-
-          <div className="bg-gray-50 rounded-lg p-4 mb-6">
-            <p className="text-sm font-medium text-gray-700 mb-1">Type</p>
-            <p className="text-gray-600">{source.type}</p>
+          <div className="bg-white rounded-xl shadow-sm p-6 border-2 border-red-100">
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-lg font-semibold font-heading text-gray-800">
+                Report Contaminated Source
+              </h3>
+            </div>
+            <p className="text-sm text-gray-500 mb-4">
+              Think a water source is contaminated? Report it and we will investigate right away.
+            </p>
+            <form className="space-y-3">
+              <select className="select select-bordered w-full">
+                <option value="">Select the water source</option>
+                <option value="savita-borewell">Savita Borewell</option>
+                <option value="gowda-colony-well">Gowda Colony Well</option>
+                <option value="near-tax-bar">HDMC Water Point</option>
+                <option value="other">Other (mention in notes)</option>
+              </select>
+              <textarea
+                placeholder="Why do you think it is contaminated? (smell, colour, illness, etc.)"
+                className="textarea textarea-bordered w-full h-20"
+              />
+              <button type="button" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-xl w-full transition-colors">
+                Report Contamination
+              </button>
+            </form>
           </div>
-
-          <div className="bg-gray-50 rounded-lg p-4 mb-6">
-            <p className="text-sm font-medium text-gray-700 mb-1">About This Source</p>
-            <p className="text-gray-600">{source.details}</p>
-          </div>
-
-          <a
-            href={`/sources/${id}/request`}
-            className="block w-full bg-teal-600 hover:bg-teal-700 text-white text-center font-semibold py-3 px-8 rounded-xl text-lg transition-colors"
-          >
-            Request Delivery
-          </a>
         </div>
       </main>
+
+Nav active="report" />
     </div>
   );
 }
