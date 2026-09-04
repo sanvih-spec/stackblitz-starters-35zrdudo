@@ -2,7 +2,7 @@ const sources: Record<string, { name: string; location: string; type: string; st
   "savita-borewell": {
     name: "Savita Borewell",
     location: "Near Savita Bakery, Borewell Road",
-    type: "Drinking & Cooking",
+    type: "Drinking and Cooking",
     status: "clean",
     distance: "400m",
     details: "This borewell has been tested and confirmed safe for drinking and cooking. Water is available from 6 AM to 6 PM daily.",
@@ -21,7 +21,7 @@ const sources: Record<string, { name: string; location: string; type: string; st
     type: "Household Use",
     status: "clean",
     distance: "800m",
-    details: "Municipal water supply point. Available 24/7. Suitable for all household purposes.",
+    details: "Municipal water supply point. Available 24 by 7. Suitable for all household purposes.",
   },
 };
 

@@ -22,7 +22,7 @@ export default function Report() {
         <div className="space-y-6">
           <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl">💧</span>
+              <span className="text-2xl">&#x1F4A7;</span>
               <h3 className="text-lg font-semibold font-heading text-gray-800">
                 Suggest a Water Source
               </h3>
@@ -59,7 +59,7 @@ export default function Report() {
 
           <div className="bg-white rounded-xl shadow-sm p-6 border-2 border-red-100">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl">⚠️</span>
+              <span className="text-2xl">&#x26A0;&#xFE0F;</span>
               <h3 className="text-lg font-semibold font-heading text-gray-800">
                 Report Contaminated Source
               </h3>

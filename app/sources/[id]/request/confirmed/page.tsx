@@ -21,10 +21,10 @@ export default async function Confirmed({ params }: { params: Promise<{ id: stri
           Delivery Confirmed!
         </h2>
         <p className="text-gray-500 max-w-md mb-2">
-          Your water delivery has been scheduled. You'll receive it at your registered address.
+          Your water delivery has been scheduled. You will receive it at your registered address.
         </p>
         <p className="text-sm text-gray-400 mb-8">
-          You can track your order in "My Orders"
+          You can track your order in My Orders
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
