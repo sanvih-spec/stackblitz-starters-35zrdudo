@@ -29,12 +29,12 @@ export default function Login() {
             </div>
 
             <a href="/sources" className="btn btn-primary w-full text-lg">
-  Log In
-</a>
+              Log In
+            </a>
           </form>
 
           <p className="text-center text-gray-400 mt-6">
-            Don't have an account?{" "}
+            Do not have an account?{" "}
             <a href="/signup" className="text-teal-600 font-semibold hover:underline">
               Sign Up
             </a>
